@@ -12,7 +12,7 @@ from sqlalchemy.orm import sessionmaker
 from app.models import User, Category, Item, Base
 
 
-engine = create_engine('sqlite:///catalogProject.db')
+# engine = create_engine('sqlite:///catalogProject.db')
 # Bind the engine to the metadata of the Base class so that decleratives can
 # be accessed through a DBSession instance
 Base.metadata.bind = engine

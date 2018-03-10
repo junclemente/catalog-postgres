@@ -24,9 +24,11 @@ import requests
 
 auth = HTTPBasicAuth()
 
-CLIENT_ID = json.loads(
-    open('client_secrets.json', 'r').read())['web']['client_id']
+# Moved to config.py
+# CLIENT_ID = json.loads(
+#     open('client_secrets.json', 'r').read())['web']['client_id']
 
+CLIENT_ID = app.config['CLIENT_ID']
 
 @app.route('/login', methods=['GET', 'POST'])
 def show_login():
@@ -55,6 +57,7 @@ def show_login():
 
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
+    print CLIENT_ID
     # Validate state token
     if request.args.get('state') != login_session['state']:
         response = make_response(json.dumps('Invalid state parameter.'), 401)
@@ -172,7 +175,7 @@ def gdisconnect():
         del login_session['picture']
         del login_session['user_id']
         flash("You have been successfully disconnected!", "flash-success")
-        return redirect(url_for('index'))
+    return redirect(url_for('index'))
 
 
 def createUser(login_session):

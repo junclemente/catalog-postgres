@@ -1,3 +1,4 @@
+from app import app
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, backref
@@ -98,7 +99,9 @@ class Item(Base):
         return itemJSON
 
 
-engine = create_engine('sqlite:///catalogProject.db')
+# engine = create_engine('sqlite:///catalogProject.db')
+# engine = create_engine('postgresql://student:student@localhost/catalog000')
+engine = create_engine(app.config['DATABASE_URI'])
 
 
 Base.metadata.create_all(engine)
