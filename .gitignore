@@ -1,7 +1,7 @@
 *.db
 client_secrets.json
 **/.DS_Store
-config-file.py
+config.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
