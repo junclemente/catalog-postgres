@@ -24,12 +24,10 @@ import requests
 
 auth = HTTPBasicAuth()
 
-# Moved to config.py
-# CLIENT_ID = json.loads(
-#     open('client_secrets.json', 'r').read())['web']['client_id']
+CLIENT_SECRET_URI = app.config['CLIENT_SECRET_URI']
 CLIENT_ID = json.loads(
-        open(app.config['CLIENT_SECRET_URI'], 'r').read())['web']['client_id']
-# CLIENT_ID = app.config['CLIENT_ID']
+        open(CLIENT_SECRET_URI, 'r').read())['web']['client_id']
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def show_login():
@@ -69,8 +67,7 @@ def gconnect():
 
     try:
         # Upgrade authorization code into a credentials object
-        # oauth_flow = flow_from_clientsecrets('client_secrets.json', scope='')
-        oauth_flow = flow_from_clientsecrets(app.config['CLIENT_SECRET_URI'],
+        oauth_flow = flow_from_clientsecrets(CLIENT_SECRET_URI,
                                              scope='')
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(code)

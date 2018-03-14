@@ -4,14 +4,17 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy import create_engine
 from passlib.apps import custom_app_context as pwd_context
-from itsdangerous import(TimedJSONWebSignatureSerializer as
-                         Serializer, BadSignature, SignatureExpired)
+from itsdangerous import (TimedJSONWebSignatureSerializer as
+                          Serializer, BadSignature, SignatureExpired)
 import random
 import string
 
 Base = declarative_base()
 secret_key = ''.join(random.choice(string.ascii_uppercase + string.digits)
                      for x in xrange(32))
+
+
+DATABASE_URI = app.config['DATABASE_URI']
 
 
 class User(Base):
@@ -99,10 +102,6 @@ class Item(Base):
         return itemJSON
 
 
-# engine = create_engine('sqlite:///catalogProject.db')
-# engine = create_engine('postgresql://student:student@localhost/catalog000')
-engine = create_engine(app.config['DATABASE_URI'])
-# engine = create_engine('postgresql://catalogowner:cat000@localhost/catalog')
-
+engine = create_engine(DATABASE_URI)
 
 Base.metadata.create_all(engine)
