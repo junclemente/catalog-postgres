@@ -14,6 +14,8 @@ secret_key = ''.join(random.choice(string.ascii_uppercase + string.digits)
                      for x in xrange(32))
 
 
+DATABASE_URI = app.config['DATABASE_URI']
+
 class User(Base):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
@@ -101,7 +103,7 @@ class Item(Base):
 
 # engine = create_engine('sqlite:///catalogProject.db')
 # engine = create_engine('postgresql://student:student@localhost/catalog000')
-engine = create_engine(app.config['DATABASE_URI'])
+engine = create_engine(DATABASE_URI)
 # engine = create_engine('postgresql://catalogowner:cat000@localhost/catalog')
 
 
