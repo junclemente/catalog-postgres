@@ -3,8 +3,7 @@
 ## Project for Fullstack Web Development at [Udacity.com](http://udacity.com)
 This project is about setting up a Linux server to host a web application using
 a previously completed project. The original source code that will be used for
-this project can be found here: [catalog-project]
-(https://github.com/junclemente/catalog_project).
+this project can be found here: [catalog-project](https://github.com/junclemente/catalog_project).
 
 An Ubuntu Linux server instance will be setup on [Amazon Lightsail](http://lighsail.aws.amazon.com)
 and secured by configuring the Uncomplicated Firewall (UFW).
