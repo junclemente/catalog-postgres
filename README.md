@@ -37,6 +37,7 @@ Flask application.
   * allow 2200/tcp
   * allow www
   * allow ntp
+* `config.py` and `client_secrets.json` files uploaded and configured privately
 
 ### Third-Party Resources
 * [Ubuntu packages](https://packages.ubuntu.com/)
