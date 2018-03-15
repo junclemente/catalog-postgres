@@ -20,4 +20,33 @@ Flask application.
 
 
 ### Software Installed
-* 
+* apache2
+* libapache2-mod-wsgi
+* postgresql
+* postgresql-contrib
+* git
+* python-pip
+
+### Configuration
+* Changed `ssh` port to `2200`
+* Disabled login by password authentication
+* Forced login by key-based authentication
+* UFW Firewall
+  * deny all incoming
+  * allow all outgoing
+  * allow 2200/tcp
+  * allow www
+  * allow ntp
+
+### Third-Party Resources
+* [Ubuntu packages](https://packages.ubuntu.com/)
+* [Changing the SSH Port for Linux Servers](https://www.godaddy.com/help/changing-the-ssh-port-for-your-linux-server-7306)
+* [UFW Ubuntu Documentation](https://help.ubuntu.com/community/UFW)
+* [Flask mod_wsgi(Apache)](http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/)
+* [Deploy a Flask Application on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+* [Flask Configuration Handling](http://flask.pocoo.org/docs/0.12/config/)
+* [Flask - Setting Up Postgres and SQLAlchemy](https://realpython.com/blog/python/flask-by-example-part-2-postgres-sqlalchemy-and-alembic/)
+* [Developing a Flask Web App with PostgreSQL DB](https://blog.theodo.fr/2017/03/developping-a-flask-web-app-with-a-postresql-database-making-all-the-possible-errors/)
+* [SQLAlchemy.org](https://www.sqlalchemy.org/)
+* [Udacity FSND Forums](https://discussions.udacity.com/c/nd004-full-stack-broadcast)
+*
