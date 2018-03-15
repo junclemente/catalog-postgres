@@ -37,6 +37,7 @@ Flask application.
   * allow 2200/tcp
   * allow www
   * allow ntp
+* `config.py` and `client_secrets.json` files uploaded and configured privately
 
 ### Third-Party Resources
 * [Ubuntu packages](https://packages.ubuntu.com/)
@@ -49,4 +50,3 @@ Flask application.
 * [Developing a Flask Web App with PostgreSQL DB](https://blog.theodo.fr/2017/03/developping-a-flask-web-app-with-a-postresql-database-making-all-the-possible-errors/)
 * [SQLAlchemy.org](https://www.sqlalchemy.org/)
 * [Udacity FSND Forums](https://discussions.udacity.com/c/nd004-full-stack-broadcast)
-*
