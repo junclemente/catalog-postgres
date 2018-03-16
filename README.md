@@ -41,6 +41,7 @@ Flask application.
 
 ### Third-Party Resources
 * [Ubuntu packages](https://packages.ubuntu.com/)
+* [Ubuntu Docs - Automatic Updates](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)
 * [Changing the SSH Port for Linux Servers](https://www.godaddy.com/help/changing-the-ssh-port-for-your-linux-server-7306)
 * [UFW Ubuntu Documentation](https://help.ubuntu.com/community/UFW)
 * [Flask mod_wsgi(Apache)](http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/)
@@ -50,3 +51,4 @@ Flask application.
 * [Developing a Flask Web App with PostgreSQL DB](https://blog.theodo.fr/2017/03/developping-a-flask-web-app-with-a-postresql-database-making-all-the-possible-errors/)
 * [SQLAlchemy.org](https://www.sqlalchemy.org/)
 * [Udacity FSND Forums](https://discussions.udacity.com/c/nd004-full-stack-broadcast)
+* [Disabling SSH Logins for root](https://www.a2hosting.com/kb/getting-started-guide/accessing-your-account/disabling-ssh-logins-for-root#Disabling-SSH-login-for-root)
