@@ -13,8 +13,9 @@ Flask application.
 ## Udacity Grader
 
 ### Access
-* Website URL: [http://ec2-34-218-171-18.us-west-2.compute.amazonaws.com/](http://ec2-34-218-171-18.us-west-2.compute.amazonaws.com/)
-* Public IP Address: 34.218.171.18
+*  Projected completed on 16 Mar 2018. Lightsail account closed. 
+*  ~~Website URL: [http://ec2-34-218-171-18.us-west-2.compute.amazonaws.com/](http://ec2-34-218-171-18.us-west-2.compute.amazonaws.com/)~~
+* ~~Public IP Address: 34.218.171.18~~  
 * SSH Port: 2200
 * Modified source code using PostgreSQL DB: [catalog-posgres](https://github.com/junclemente/catalog-postgres)
 
