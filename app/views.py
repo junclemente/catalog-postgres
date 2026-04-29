@@ -3,11 +3,11 @@ from app import app
 from flask import render_template, flash, redirect, url_for, request
 from flask import session as login_session
 
-from forms import CategoryForm, CategoryEditForm, ConfirmForm
-from forms import ItemForm, ItemEditForm
+from .forms import CategoryForm, CategoryEditForm, ConfirmForm
+from .forms import ItemForm, ItemEditForm
 
-from catalog_db import session
-from models import Category, Item
+from .catalog_db import session
+from .models import Category, Item
 
 from functools import wraps
 
@@ -151,7 +151,7 @@ def add_item(cat_id):
                         description=form.description.data or "No description",
                         category_id=category.id,
                         user_id=login_session['user_id'])
-        print new_item
+        print(new_item)
         session.add(new_item)
         session.commit()
         flash('Item added successfully.', "flash-success")

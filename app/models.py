@@ -1,17 +1,15 @@
 from app import app
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, backref
+from sqlalchemy.orm import declarative_base, relationship, backref
 from sqlalchemy import create_engine
 from passlib.apps import custom_app_context as pwd_context
-from itsdangerous import (TimedJSONWebSignatureSerializer as
-                          Serializer, BadSignature, SignatureExpired)
+from itsdangerous import URLSafeTimedSerializer, BadSignature, SignatureExpired
 import random
 import string
 
 Base = declarative_base()
 secret_key = ''.join(random.choice(string.ascii_uppercase + string.digits)
-                     for x in xrange(32))
+                     for x in range(32))
 
 
 DATABASE_URI = app.config['DATABASE_URI']
@@ -34,7 +32,7 @@ class User(Base):
     #     return pwd_context.verify(password, self.password_hash)
 
     def generate_auth_token(self, expiration=600):
-        s = Serializer(secret_key, expires_in=expiration)
+        s = URLSafeTimedSerializer(secret_key)
         return s.dumps({'id': self.id})
 
     # @property
@@ -45,15 +43,13 @@ class User(Base):
     #     return userJSON
 
     @staticmethod
-    def verify_auth_token(token):
-        s = Serializer(secret_key)
+    def verify_auth_token(token, max_age=600):
+        s = URLSafeTimedSerializer(secret_key)
         try:
-            data = s.loads(token)
+            data = s.loads(token, max_age=max_age)
         except SignatureExpired:
-            # Valid token, but expired
             return None
         except BadSignature:
-            # Invalid token
             return None
         user_id = data['id']
         return user_id

@@ -2,8 +2,8 @@ from app import app
 
 from flask import jsonify
 
-from catalog_db import session
-from models import User, Category, Item
+from .catalog_db import session
+from .models import User, Category, Item
 
 
 # For testing only

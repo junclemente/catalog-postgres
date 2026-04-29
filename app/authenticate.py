@@ -3,12 +3,12 @@ from app import app
 from flask import request, render_template, flash, redirect, url_for, g
 from flask import session as login_session
 
-from forms import LoginForm
+from .forms import LoginForm
 
-from catalog_db import session
-from models import User
+from .catalog_db import session
+from .models import User
 
-import catalog_db
+from . import catalog_db
 
 from flask_httpauth import HTTPBasicAuth
 
@@ -34,7 +34,7 @@ def show_login():
     error = None
     form = LoginForm()
     state = ''.join(random.choice(string.ascii_uppercase + string.digits)
-                    for x in xrange(32))
+                    for x in range(32))
     login_session['state'] = state
     if form.validate_on_submit():
         username = form.name.data
@@ -56,7 +56,7 @@ def show_login():
 
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
-    print CLIENT_ID
+    print(CLIENT_ID)
     # Validate state token
     if request.args.get('state') != login_session['state']:
         response = make_response(json.dumps('Invalid state parameter.'), 401)
@@ -101,7 +101,7 @@ def gconnect():
     if result['issued_to'] != CLIENT_ID:
         response = make_response(
             json.dumps("Token's client ID does not match app's."), 401)
-        print "Token's client ID does not match app's"
+        print("Token's client ID does not match app's")
         response.headers['Content-Type'] = 'application/json'
         return response
 
@@ -129,9 +129,9 @@ def gconnect():
     login_session['email'] = data['email']
 
     # Check if user exists in database
-    print login_session['email']
+    print(login_session['email'])
     user_id = getUserId(login_session['email'])
-    print user_id
+    print(user_id)
     if not user_id:
         print("New User. Creating record in database.")
         # Create new user and re-assign user_id.
@@ -142,7 +142,7 @@ def gconnect():
     # Assign user_id.
     login_session['user_id'] = user_id
 
-    print login_session['user_id']
+    print(login_session['user_id'])
 
     output = ''
     output += '<h1>Welcome, '
